@@ -1,0 +1,18 @@
+<div class="well">
+    <a href="/todos/">Back to Todo List</a>
+    <form action="{% url 'todo_add' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="task">Task: </label>
+            <input type="text" name="task" id="task" class="form-control" />
+            <br>
+            <label for="due_on">Due on: </label>
+            <input type="datetime-local" name="due_on" id="due_on" class="form-control" />
+            <br>
+            <label for="owner">Owner: </label>
+            <input type="text" name="owner" id="owner" class="form-control" />
+            <br>
+        </div>
+        <button type="submit" class="btn">Add</button>
+    </form>
+  </div>

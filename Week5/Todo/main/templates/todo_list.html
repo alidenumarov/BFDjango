@@ -1,0 +1,26 @@
+<div style="width:864px; margin: 0 auto;">
+    {% comment %} <button style="background-color:dodgerblue; color:white; ">Add Task</button>  {% endcomment %}
+    <a href="/todos/add" class="button" style="background-color:dodgerblue; color:white; ">Add Task</a>
+    <hr/>
+    <h1>Tasks in "List 1"</h1>  
+    <hr/>      
+        <table style="width:100%">
+                <th> Task</th>
+                <th> Created </th>
+                <th> Due on</th>
+                <th> Owner </th>
+                <th> Mark </th>
+            {% for todo in todo_list %}
+                <tr>
+                    <td> <a href="#">{{ todo.task }}</a><hr/></td>
+                    <td>{{ todo.created }}<hr/></td>
+                    <td>{{ todo.due_on }}<hr/></td>
+                    <td>{{ todo.owner }}<hr/></td>
+                    <td><a href="{% url 'todo_delete' todo_id=todo.id %}" class="button, todo_delete" style="background-color:dodgerblue; color:white; ">{{ todo.mark }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    <br/>
+    <button style="background-color:darkorange;"> <a href="/todos/completed">View completed tasks</a></button> 
+    <button style="background-color:firebrick;"><a href="/todos/delete_complete_list" style="color:white;">Delete this list</a></button>
+</div>

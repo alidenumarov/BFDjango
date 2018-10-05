@@ -1,0 +1,20 @@
+<div style="width:864px; margin: 0 auto;">
+        <h1>Completed tasks in "List 1"</h1>
+        {% for todo in completed_todo_list %}
+            
+            <table style="width:100%">
+                <tr>
+                    <td> <a href="#">{{ todo.task }}</a></td>
+                    <td>{{ todo.created }}</td>
+                    <td>{{ todo.due_on }}</td>
+                    <td>{{ todo.owner }}</td>
+                    <td> <button style="background-color:dodgerblue; color:white;">{{ todo.mark }}</button></td>
+                    <hr/>
+                </tr>
+            </table>
+        {% endfor %}
+        <br/>
+        <button style="background-color:darkorange;"> <a href="/todos/">View tasks list</a></button> 
+        <button style="background-color:firebrick; color:white"> <a href="/todos/delete_incomplete_list">Delete this list</a></button>
+    </div>
+    

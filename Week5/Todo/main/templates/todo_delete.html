@@ -1,0 +1,19 @@
+<div class="well">
+    <a href="/todos/">Back to Todo List</a>
+    <form action="{% url 'todo_delete' todo_id=todo.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="task" style="size:50px;"> <b>Task:</b> </label> {{todo.task}}
+            <br>
+            <label for="created" style="size:50px;"> <b>Created:</b> </label> {{todo.created}}
+            <br>
+            <label for="due_on" style="size:50px;"> <b>Due on:</b> </label> {{todo.due_on}}
+            <br>
+            <label for="owner" style="size:50px;"> <b>Owner:</b> </label> {{todo.owner}}
+            <br>
+            <label for="mark" style="size:50px;"> <b>Mark:</b> </label> {{todo.mark}}
+            <br>
+        </div>
+        <button type="submit" class="btn">Add to completed</button>
+    </form>
+  </div>
