@@ -11,27 +11,25 @@
     </div>
         <div class="well">
           {% for p in posts %}
-                    <h1><i>Title:</i>{{p.title}}</h1>
-                    <h2><i>Author:</i>{{p.author}}</h2>
-                    <h3><i>Text:</i>{{p.text}}</h3>
-                    <h5><i>Comments:</i>
+            <div style="border-style: inset; margin-top:15px;">
+                    <div style="margin: 0; text-align: center;"><h2>{{p.title}}</h2></div>
+                    <h6 align="right" style="color:darkslategrey"><i>by:</i>{{p.author}}</h6>
+                    <h3 style="color:midnightblue">{{p.text}}</h3>
+                    <h5> <b><i>Comments:</i></b>
                 {% with p.comments.all as comments %}
                     {% for comment in comments %}
-                        <p style="color:blue">{{ comment.text }}</p>
+                            <div style="margin-left:20px;border-style: double;">
+                                <p style="color:forestgreen; ">{{comment.author}}</p>
+                                <p style="color:blue;">{{ comment.text }}        
+                                <p style="color:firebrick">{{comment.written}}</p>
+                            </div>
+                        </p>
                     {% empty %}
                         <p style="color:grey">no comments yet</p>
                     {% endfor %}
                 {% endwith %}
-              {% for c in comments %}
-                <!-- <div class="panel panel-default"> -->
-                    <!-- <div class="panel-body"> -->
-                            <h6>{{c.text}}, {{c.author}}, {{c.written}}</h6>
-                        </h5>  
-                    <!-- <label class="text" for="text">{{post.text}}</label> <br /> -->
-                    <!-- <label class="text" for="text">{{post.post.text}}</label> <br /> -->
-                <!-- </div> -->
-            {% endfor %}
-            <!-- </div> -->
+                </h5>
+            </div>
           {% endfor %}
         </div>
 </body>  
