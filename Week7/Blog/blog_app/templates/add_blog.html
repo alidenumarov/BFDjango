@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1>Add blog</h1>
+    <div class="well">
+            <form action="{% url 'add_blog' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {% comment %} <label for="author">author: </label>
+                    <input type="text" name="author" id="author" class="form-control" /> {% endcomment %}
+                    <br>
+                    <label for="title">title: </label>
+                    <input type="text" name="title" id="title" class="form-control" />
+                    <br>
+                    <label for="text">text: </label>
+                    <input type="text" name="text" id="text" class="form-control" />
+                    <br>
+                </div>
+                <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+
+
+
+
+
+{% endblock %}
